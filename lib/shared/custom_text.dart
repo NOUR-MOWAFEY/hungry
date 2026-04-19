@@ -5,7 +5,7 @@ class CustomText extends StatelessWidget {
     super.key,
     required this.text,
     this.color = Colors.white,
-    this.fontWeight,
+    this.fontWeight = FontWeight.w500,
     this.size,
   });
   final String text;
