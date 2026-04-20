@@ -9,11 +9,13 @@ class CustomButton extends StatelessWidget {
     this.onTap,
     this.height = 60,
     this.width,
+    this.color = AppColors.primary,
   });
   final String text;
   final void Function()? onTap;
   final double height;
   final double? width;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class CustomButton extends StatelessWidget {
         width: width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: AppColors.primary,
+          color: color,
         ),
         child: Center(child: CustomText(text: text, size: 16)),
       ),

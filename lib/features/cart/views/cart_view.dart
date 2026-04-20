@@ -14,7 +14,7 @@ class CartView extends StatelessWidget {
           itemCount: 12,
           itemBuilder: (context, index) => Column(
             children: [
-              if (index == 0) const SizedBox(height: 20),
+              if (index == 0) const SizedBox(height: 30),
               const CardItem(),
               if (index == 12 - 1) const SizedBox(height: 100),
             ],
