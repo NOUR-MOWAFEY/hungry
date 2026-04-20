@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/features/product/widgets/product_details_view_app_bar.dart';
-import 'package:hungry/features/product/widgets/product_details_view_footer.dart';
-import 'package:hungry/features/product/widgets/side_options_section.dart';
-import 'package:hungry/features/product/widgets/slider_section.dart';
-import 'package:hungry/features/product/widgets/toppings_section.dart';
+import '../widgets/product_details_view_app_bar.dart';
+import '../widgets/product_details_view_footer.dart';
+import '../widgets/side_options_section.dart';
+import '../widgets/slider_section.dart';
+import '../widgets/toppings_section.dart';
 
 class ProductDetailsView extends StatelessWidget {
   const ProductDetailsView({super.key});

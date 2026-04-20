@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hungry/core/constants/app_colors.dart';
-import 'package:hungry/shared/custom_button.dart';
-import 'package:hungry/shared/custom_text.dart';
+import '../../../core/constants/app_colors.dart';
+import '../../checkout/views/checkout_view.dart';
+import '../../../shared/custom_button.dart';
+import '../../../shared/custom_text.dart';
 
 class CartViewFooter extends StatelessWidget {
   const CartViewFooter({super.key});
@@ -19,16 +20,20 @@ class CartViewFooter extends StatelessWidget {
           topRight: Radius.circular(18),
         ),
       ),
-      child: const Row(
+      child: Row(
         mainAxisAlignment: .spaceBetween,
         children: [
           Column(
             mainAxisAlignment: .spaceBetween,
             crossAxisAlignment: .start,
             children: [
-              CustomText(text: 'Total', color: AppColors.secondary, size: 20),
+              const CustomText(
+                text: 'Total',
+                color: AppColors.secondary,
+                size: 20,
+              ),
 
-              CustomText(
+              const CustomText(
                 text: '\$18.19',
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
@@ -37,7 +42,14 @@ class CartViewFooter extends StatelessWidget {
             ],
           ),
 
-          CustomButton(text: 'Checkout', width: 170),
+          CustomButton(
+            text: 'Checkout',
+            width: 170,
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const CheckoutView()),
+            ),
+          ),
         ],
       ),
     );

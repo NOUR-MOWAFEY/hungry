@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/core/constants/app_colors.dart';
-import 'package:hungry/shared/custom_text.dart';
+import '../../../core/constants/app_colors.dart';
+import '../../../shared/custom_text.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});

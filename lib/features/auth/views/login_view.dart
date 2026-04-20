@@ -3,10 +3,10 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/core/constants/app_colors.dart';
-import 'package:hungry/features/auth/widgets/custom_auth_button.dart';
-import 'package:hungry/shared/custom_text.dart';
-import 'package:hungry/shared/custom_text_field.dart';
+import '../../../core/constants/app_colors.dart';
+import '../widgets/custom_auth_button.dart';
+import '../../../shared/custom_text.dart';
+import '../../../shared/custom_text_field.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});

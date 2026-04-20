@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hungry/features/order_history/widgets/order_history_card_item.dart';
+
+import '../widgets/order_history_card_item.dart';
 
 class OrderHistoryView extends StatelessWidget {
   const OrderHistoryView({super.key});

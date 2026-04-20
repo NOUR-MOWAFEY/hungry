@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/features/home/widgets/categories_list.dart';
-import 'package:hungry/features/home/widgets/food_sliver_grid.dart';
-import 'package:hungry/features/home/widgets/home_app_bar.dart';
-import 'package:hungry/features/home/widgets/search_bar.dart';
+import '../widgets/categories_list.dart';
+import '../widgets/food_sliver_grid.dart';
+import '../widgets/home_app_bar.dart';
+import '../widgets/search_bar.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/core/constants/app_colors.dart';
-import 'package:hungry/features/cart/widgets/counter_widget.dart';
-import 'package:hungry/shared/custom_button.dart';
-import 'package:hungry/shared/custom_text.dart';
+import '../../../core/constants/app_colors.dart';
+import 'counter_widget.dart';
+import '../../../shared/custom_button.dart';
+import '../../../shared/custom_text.dart';
 
 class CardItem extends StatelessWidget {
   const CardItem({super.key});

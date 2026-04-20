@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/core/constants/app_colors.dart';
-import 'package:hungry/features/product/widgets/topping_item.dart';
-import 'package:hungry/shared/custom_text.dart';
+
+import '../../../core/constants/app_colors.dart';
+import '../../../shared/custom_text.dart';
+import 'topping_item.dart';
 
 class SideOptionsSection extends StatelessWidget {
   const SideOptionsSection({super.key});

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../core/constants/app_colors.dart';
 
-class ProuductDetailsAppBar extends StatelessWidget
-    implements PreferredSizeWidget {
-  const ProuductDetailsAppBar({super.key});
+class CheckOutAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const CheckOutAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +12,7 @@ class ProuductDetailsAppBar extends StatelessWidget
       backgroundColor: Colors.white,
       leading: IconButton(
         onPressed: () => Navigator.pop(context),
-        icon: Icon(
+        icon: const Icon(
           Icons.arrow_back_rounded,
           fontWeight: FontWeight.bold,
           color: AppColors.secondary,
@@ -25,3 +24,4 @@ class ProuductDetailsAppBar extends StatelessWidget
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }
+

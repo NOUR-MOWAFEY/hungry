@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/features/home/widgets/food_category_item.dart';
+import 'food_category_item.dart';
 
 class CategoriesList extends StatefulWidget {
   const CategoriesList({super.key});

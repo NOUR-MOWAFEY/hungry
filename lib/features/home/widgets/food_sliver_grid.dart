@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hungry/features/home/widgets/food_grid_item.dart';
-import 'package:hungry/features/product/views/product_details_view.dart';
+import 'food_grid_item.dart';
+import '../../product/views/product_details_view.dart';
 
 class FoodSliverGrid extends StatelessWidget {
   const FoodSliverGrid({super.key});

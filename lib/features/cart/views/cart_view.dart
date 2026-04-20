@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hungry/features/cart/widgets/card_item.dart';
-import 'package:hungry/features/cart/widgets/cart_view_footer.dart';
+
+import '../widgets/card_item.dart';
+import '../widgets/cart_view_footer.dart';
 
 class CartView extends StatelessWidget {
   const CartView({super.key});
