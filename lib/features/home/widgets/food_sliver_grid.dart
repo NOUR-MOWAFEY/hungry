@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hungry/features/home/widgets/food_grid_item.dart';
+import 'package:hungry/features/product/views/product_details_view.dart';
 
 class FoodSliverGrid extends StatelessWidget {
   const FoodSliverGrid({super.key});
@@ -10,7 +10,13 @@ class FoodSliverGrid extends StatelessWidget {
     return SliverGrid(
       delegate: SliverChildBuilderDelegate(
         childCount: 8,
-        (context, index) => const FoodGridItem(),
+        (context, index) => GestureDetector(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ProductDetailsView()),
+          ),
+          child: const FoodGridItem(),
+        ),
       ),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         childAspectRatio: 0.737,
