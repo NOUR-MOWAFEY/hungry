@@ -10,6 +10,7 @@ class ToppingsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: .start,
       children: [
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 18),

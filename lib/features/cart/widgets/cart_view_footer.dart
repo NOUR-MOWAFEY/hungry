@@ -3,13 +3,22 @@ import 'package:hungry/core/constants/app_colors.dart';
 import 'package:hungry/shared/custom_button.dart';
 import 'package:hungry/shared/custom_text.dart';
 
-class ProductDetailsViewFooter extends StatelessWidget {
-  const ProductDetailsViewFooter({super.key});
+class CartViewFooter extends StatelessWidget {
+  const CartViewFooter({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 18),
+    return Container(
+      height: 80,
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(18),
+          topRight: Radius.circular(18),
+        ),
+      ),
       child: const Row(
         mainAxisAlignment: .spaceBetween,
         children: [
@@ -28,7 +37,7 @@ class ProductDetailsViewFooter extends StatelessWidget {
             ],
           ),
 
-          CustomButton(text: 'Add To Cart', width: 170),
+          CustomButton(text: 'Checkout', width: 170),
         ],
       ),
     );
