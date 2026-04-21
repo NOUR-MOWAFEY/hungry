@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+
 import '../../../core/constants/app_colors.dart';
-import 'payment_success_alert_dialog.dart';
 import '../../../shared/custom_button.dart';
 import '../../../shared/custom_text.dart';
+import 'payment_success_alert_dialog.dart';
 
 class CheckoutViewFooter extends StatelessWidget {
   const CheckoutViewFooter({super.key});
@@ -10,18 +11,21 @@ class CheckoutViewFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 120,
-      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
+      height: 115,
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
 
       decoration: const BoxDecoration(
+        boxShadow: [
+          BoxShadow(color: Colors.grey, blurRadius: 12, spreadRadius: 1),
+        ],
         color: Colors.white,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(18),
-          topRight: Radius.circular(18),
+          topLeft: Radius.circular(32),
+          topRight: Radius.circular(32),
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 16),
+        padding: const EdgeInsets.only(bottom: 8, top: 2),
         child: Row(
           mainAxisAlignment: .spaceBetween,
           children: [

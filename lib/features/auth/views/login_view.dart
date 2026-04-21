@@ -1,12 +1,10 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+import 'package:hungry/features/auth/widgets/login_form.dart';
+
 import '../../../core/constants/app_colors.dart';
-import '../widgets/custom_auth_button.dart';
 import '../../../shared/custom_text.dart';
-import '../../../shared/custom_text_field.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -20,53 +18,52 @@ class LoginView extends StatelessWidget {
     return GestureDetector(
       // onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        backgroundColor: AppColors.primary,
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Form(
-            key: formKey,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const Gap(130),
+        backgroundColor: Colors.white,
+        body: Form(
+          key: formKey,
+          child: Column(
+            children: [
+              const Gap(180),
 
-                  SvgPicture.asset('assets/logo/logo.svg'),
-
-                  const Gap(6),
-
-                  const CustomText(
-                    text: 'Welcome Back, Discover The Fast Food',
-                    fontWeight: FontWeight.w600,
-                  ),
-
-                  const Gap(150),
-
-                  CustomTextFormField(
-                    hintText: 'Email address',
-                    isPassword: false,
-                    controller: emailController,
-                  ),
-
-                  const Gap(12),
-
-                  CustomTextFormField(
-                    hintText: 'Password',
-                    isPassword: true,
-                    controller: passwordController,
-                  ),
-
-                  const Gap(24),
-
-                  CustomAuthButton(
-                    formKey: formKey,
-                    text: 'Login',
-                    onTap: () {
-                      log('Successfully Login');
-                    },
-                  ),
-                ],
+              SvgPicture.asset(
+                'assets/logo/logo.svg',
+                colorFilter: const ColorFilter.mode(
+                  AppColors.primary,
+                  BlendMode.srcIn,
+                ),
               ),
-            ),
+
+              const Gap(6),
+
+              const CustomText(
+                text: 'Welcome Back, Discover The Fast Food',
+                fontWeight: FontWeight.w600,
+                color: AppColors.primary,
+              ),
+
+              const Gap(140),
+
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 18),
+
+                  decoration: const BoxDecoration(
+                    color: AppColors.primary,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(24),
+                      topRight: Radius.circular(24),
+                    ),
+                  ),
+                  child: SingleChildScrollView(
+                    child: LoginForm(
+                      emailController: emailController,
+                      passwordController: passwordController,
+                      formKey: formKey,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

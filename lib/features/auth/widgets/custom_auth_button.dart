@@ -9,10 +9,14 @@ class CustomAuthButton extends StatelessWidget {
     required this.formKey,
     required this.text,
     this.onTap,
+    this.color = Colors.white,
+    this.textColor = AppColors.primary,
   });
   final GlobalKey<FormState> formKey;
   final String text;
   final void Function()? onTap;
+  final Color color;
+  final Color textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +25,14 @@ class CustomAuthButton extends StatelessWidget {
       child: Container(
         height: 55,
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
+          color: color,
+          borderRadius: BorderRadius.circular(16),
         ),
 
         child: Center(
           child: CustomText(
             text: text,
-            color: AppColors.primary,
+            color: textColor,
             fontWeight: FontWeight.w500,
             size: 16,
           ),
