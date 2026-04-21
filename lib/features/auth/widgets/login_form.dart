@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/features/auth/views/signup_view.dart';
+import '../views/signup_view.dart';
 
 import '../../../core/constants/app_colors.dart';
 import '../../../shared/custom_text_field.dart';

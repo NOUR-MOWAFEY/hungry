@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/features/auth/widgets/signup_form.dart';
-import 'package:hungry/shared/custom_text.dart';
+import '../widgets/signup_form.dart';
+import '../../../shared/custom_text.dart';
 
 import '../../../core/constants/app_colors.dart';
 

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/core/constants/app_colors.dart';
-import 'package:hungry/features/auth/widgets/custom_profile_text_form_field.dart';
-import 'package:hungry/features/auth/widgets/profile_debit_list_tile.dart';
-import 'package:hungry/features/auth/widgets/profile_view_footer.dart';
+
+import '../../../core/constants/app_colors.dart';
+import '../widgets/custom_profile_text_form_field.dart';
+import '../widgets/profile_debit_list_tile.dart';
+import '../widgets/profile_view_footer.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});

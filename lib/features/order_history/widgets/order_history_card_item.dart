@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+
 import '../../../core/constants/app_colors.dart';
 import '../../../shared/custom_button.dart';
 import '../../../shared/custom_text.dart';
@@ -26,28 +27,30 @@ class OrderHistorycardItem extends StatelessWidget {
 
                   const Gap(40),
 
-                  const Column(
-                    crossAxisAlignment: .start,
-                    children: [
-                      CustomText(
-                        text: 'Hamburger',
-                        color: AppColors.secondary,
-                        fontWeight: FontWeight.bold,
-                        size: 16,
-                      ),
+                  Flexible(
+                    child: const Column(
+                      crossAxisAlignment: .start,
+                      children: [
+                        CustomText(
+                          text: 'Hamburger',
+                          color: AppColors.secondary,
+                          fontWeight: FontWeight.bold,
+                          size: 16,
+                        ),
 
-                      CustomText(
-                        text: 'Qty: 3',
-                        color: AppColors.secondary,
-                        size: 16,
-                      ),
+                        CustomText(
+                          text: 'Qty: 3',
+                          color: AppColors.secondary,
+                          size: 16,
+                        ),
 
-                      CustomText(
-                        text: 'Price 5\$',
-                        color: AppColors.secondary,
-                        size: 16,
-                      ),
-                    ],
+                        CustomText(
+                          text: 'Price 5\$',
+                          color: AppColors.secondary,
+                          size: 16,
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

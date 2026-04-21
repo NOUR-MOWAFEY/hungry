@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/features/auth/widgets/login_form.dart';
 
 import '../../../core/constants/app_colors.dart';
 import '../../../shared/custom_text.dart';
+import '../widgets/login_form.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+
 import '../../../core/constants/app_colors.dart';
-import 'order_summary_text.dart';
 import '../../../shared/custom_text.dart';
+import 'order_summary_text.dart';
 
 class OrderSummary extends StatelessWidget {
   const OrderSummary({super.key});

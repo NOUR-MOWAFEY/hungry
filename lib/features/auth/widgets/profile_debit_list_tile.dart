@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hungry/shared/custom_text.dart';
+import '../../../shared/custom_text.dart';
 
 class ProfileDebitListTile extends StatelessWidget {
   const ProfileDebitListTile({super.key});

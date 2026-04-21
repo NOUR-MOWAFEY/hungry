@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hungry/core/constants/app_colors.dart';
-import 'package:hungry/features/auth/widgets/profile_custom_button.dart';
+
+import '../../../core/constants/app_colors.dart';
+import 'profile_custom_button.dart';
 
 class ProfileViewFooter extends StatelessWidget {
   const ProfileViewFooter({super.key});

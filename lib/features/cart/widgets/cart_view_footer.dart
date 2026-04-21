@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+
 import '../../../core/constants/app_colors.dart';
-import '../../checkout/views/checkout_view.dart';
 import '../../../shared/custom_button.dart';
 import '../../../shared/custom_text.dart';
+import '../../checkout/views/checkout_view.dart';
 
 class CartViewFooter extends StatelessWidget {
   const CartViewFooter({super.key});
@@ -13,8 +14,15 @@ class CartViewFooter extends StatelessWidget {
       height: 80,
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
 
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.shade700,
+            blurRadius: 8,
+            spreadRadius: 1,
+          ),
+        ],
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(18),
           topRight: Radius.circular(18),

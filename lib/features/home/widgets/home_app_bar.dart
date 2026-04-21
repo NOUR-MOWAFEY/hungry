@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+
 import '../../../core/constants/app_colors.dart';
 import '../../../shared/custom_text.dart';
 
@@ -39,7 +39,7 @@ class HomeAppBar extends StatelessWidget {
         const CircleAvatar(
           radius: 30,
           backgroundColor: AppColors.primary,
-          child: Icon(CupertinoIcons.person, color: Colors.white, size: 28),
+          backgroundImage: AssetImage('assets/test/sonic.png'),
         ),
       ],
     );

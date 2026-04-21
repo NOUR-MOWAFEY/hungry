@@ -33,7 +33,7 @@ class _RootState extends State<Root> {
       label: 'Order History',
     ),
     BottomNavigationBarItem(
-      icon: Icon(CupertinoIcons.profile_circled),
+      icon: Icon(CupertinoIcons.profile_circled, color: Colors.grey),
       label: 'Propfile',
     ),
   ];
@@ -50,13 +50,14 @@ class _RootState extends State<Root> {
     return Scaffold(
       backgroundColor: _currentView == 3 ? AppColors.primary : null,
       body: PageView(
+        clipBehavior: Clip.none,
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),
         children: _screen,
       ),
       bottomNavigationBar: Container(
-        // clipBehavior: Clip.none,
-        padding: const EdgeInsets.only(top: 8),
+        clipBehavior: Clip.none,
+        padding: const EdgeInsets.only(top: 10),
         decoration: BoxDecoration(
           color: AppColors.primary,
           borderRadius: const BorderRadius.only(
@@ -69,8 +70,9 @@ class _RootState extends State<Root> {
           currentIndex: _currentView,
           type: BottomNavigationBarType.fixed,
           selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.grey.shade700,
+          unselectedItemColor: Colors.grey.shade600,
           backgroundColor: Colors.transparent,
+
           onTap: (index) {
             setState(() {
               _currentView = index;

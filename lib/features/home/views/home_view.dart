@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+
 import '../widgets/categories_list.dart';
 import '../widgets/food_sliver_grid.dart';
 import '../widgets/home_app_bar.dart';
@@ -28,7 +29,12 @@ class HomeView extends StatelessWidget {
               flexibleSpace: Padding(
                 padding: EdgeInsetsGeometry.only(top: 32, right: 18, left: 18),
                 child: Column(
-                  children: [Gap(16), HomeAppBar(), Gap(12), SerachBar()],
+                  children: [
+                    Gap(16),
+                    HomeAppBar(),
+                    Gap(12),
+                    Flexible(child: SerachBar()),
+                  ],
                 ),
               ),
             ),

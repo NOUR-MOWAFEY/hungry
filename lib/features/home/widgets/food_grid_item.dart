@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+
 import '../../../core/constants/app_colors.dart';
 import '../../../shared/custom_text.dart';
 
@@ -16,7 +18,20 @@ class FoodGridItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: .start,
           children: [
-            Image.asset('assets/test/test1.png', width: 150),
+            Stack(
+              clipBehavior: .none,
+              children: [
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: -8,
+                  child: Image.asset('assets/icons/shadow.png'),
+                ),
+                Image.asset('assets/test/test1.png', width: 150),
+              ],
+            ),
+
+            Gap(12),
 
             const CustomText(
               text: 'Cheeseburger',
