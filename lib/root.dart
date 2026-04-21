@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'core/constants/app_colors.dart';
 import 'features/auth/views/profile_view.dart';
 import 'features/cart/views/cart_view.dart';
@@ -47,12 +48,14 @@ class _RootState extends State<Root> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: _currentView == 3 ? AppColors.primary : null,
       body: PageView(
         controller: _pageController,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: _screen,
       ),
       bottomNavigationBar: Container(
+        // clipBehavior: Clip.none,
         padding: const EdgeInsets.only(top: 8),
         decoration: BoxDecoration(
           color: AppColors.primary,
@@ -63,7 +66,6 @@ class _RootState extends State<Root> {
         ),
         child: BottomNavigationBar(
           elevation: 0,
-
           currentIndex: _currentView,
           type: BottomNavigationBarType.fixed,
           selectedItemColor: Colors.white,
