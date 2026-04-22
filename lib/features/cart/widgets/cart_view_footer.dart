@@ -12,20 +12,21 @@ class CartViewFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 80,
-      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
 
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.shade700,
-            blurRadius: 8,
+            color: Colors.grey.shade700.withValues(alpha: .23),
+            blurRadius: 10,
             spreadRadius: 1,
+            offset: const Offset(0, -8),
           ),
         ],
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(18),
-          topRight: Radius.circular(18),
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(32),
+          topRight: Radius.circular(32),
         ),
       ),
       child: Row(
