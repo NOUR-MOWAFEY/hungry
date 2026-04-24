@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 import '../../../core/constants/app_colors.dart';
 import 'profile_custom_button.dart';
@@ -27,9 +28,10 @@ class ProfileViewFooter extends StatelessWidget {
       ),
 
       child: const Row(
-        mainAxisAlignment: .spaceBetween,
         children: [
           ProfileCustomButton(title: 'Edit Profile', icon: Icons.edit),
+
+          Gap(10),
 
           ProfileCustomButton(
             title: 'Logout',
