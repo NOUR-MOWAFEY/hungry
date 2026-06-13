@@ -29,16 +29,20 @@ class ProfileViewFooter extends StatelessWidget {
 
       child: const Row(
         children: [
-          ProfileCustomButton(title: 'Edit Profile', icon: Icons.edit),
+          Expanded(
+            child: ProfileCustomButton(title: 'Edit Profile', icon: Icons.edit),
+          ),
 
           Gap(10),
 
-          ProfileCustomButton(
-            title: 'Logout',
-            icon: Icons.logout,
-            borderColor: AppColors.primary,
-            childrenColor: AppColors.primary,
-            color: Colors.white,
+          Expanded(
+            child: ProfileCustomButton(
+              title: 'Logout',
+              icon: Icons.logout,
+              borderColor: AppColors.primary,
+              childrenColor: AppColors.primary,
+              color: Colors.white,
+            ),
           ),
         ],
       ),

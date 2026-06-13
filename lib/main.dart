@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hungry/features/auth/views/login_view.dart';
+import 'package:hungry/root.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         splashColor: Colors.transparent,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: const LoginView(),
+      home: const Root(),
     );
   }
 }

@@ -105,7 +105,7 @@ class _ProfileViewState extends State<ProfileView> {
                 child: const Center(child: ProfileDebitListTile()),
               ),
 
-              const Gap(30),
+              const Gap(120),
             ],
           ),
         ),

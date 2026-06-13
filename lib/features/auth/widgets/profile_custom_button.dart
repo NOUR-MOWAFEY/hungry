@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+
 import '../../../core/constants/app_colors.dart';
 import '../../../shared/custom_text.dart';
 
@@ -24,6 +25,8 @@ class ProfileCustomButton extends StatelessWidget {
       height: 60,
       width: 170,
 
+      padding: const EdgeInsets.all(8),
+
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(20),
@@ -32,13 +35,16 @@ class ProfileCustomButton extends StatelessWidget {
             : null,
       ),
 
-      child: Row(
-        mainAxisAlignment: .center,
-        children: [
-          CustomText(text: title, size: 16, color: childrenColor),
-          const Gap(10),
-          Icon(icon, color: childrenColor),
-        ],
+      child: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Row(
+          mainAxisAlignment: .center,
+          children: [
+            CustomText(text: title, size: 16, color: childrenColor),
+            const Gap(10),
+            Icon(icon, color: childrenColor),
+          ],
+        ),
       ),
     );
   }
