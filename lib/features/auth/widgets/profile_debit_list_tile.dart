@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../shared/custom_text.dart';
 
 class ProfileDebitListTile extends StatelessWidget {
@@ -7,7 +8,6 @@ class ProfileDebitListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () {},
       leading: Image.asset('assets/icons/visa_icon.png', width: 80),
 
       title: CustomText(text: 'Debit card', size: 16, color: Colors.black),

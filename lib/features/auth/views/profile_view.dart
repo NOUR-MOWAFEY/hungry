@@ -93,16 +93,15 @@ class _ProfileViewState extends State<ProfileView> {
 
               const Divider(indent: 32, endIndent: 32, height: 55),
 
-              Container(
-                height: 80,
-                width: double.infinity,
+              Material(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
 
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
+                child: const SizedBox(
+                  height: 80,
+                  width: double.infinity,
+                  child: Center(child: ProfileDebitListTile()),
                 ),
-
-                child: const Center(child: ProfileDebitListTile()),
               ),
 
               const Gap(120),
