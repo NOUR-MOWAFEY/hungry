@@ -6,17 +6,17 @@ import '../../../shared/custom_text.dart';
 class CustomAuthButton extends StatelessWidget {
   const CustomAuthButton({
     super.key,
-    required this.formKey,
-    required this.text,
+    this.text = '',
     this.onTap,
     this.color = Colors.white,
     this.textColor = AppColors.primary,
+    this.isLoading = false,
   });
-  final GlobalKey<FormState> formKey;
   final String text;
   final void Function()? onTap;
   final Color color;
   final Color textColor;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +30,21 @@ class CustomAuthButton extends StatelessWidget {
         ),
 
         child: Center(
-          child: CustomText(
-            text: text,
-            color: textColor,
-            fontWeight: FontWeight.w500,
-            size: 16,
-          ),
+          child: isLoading
+              ? const SizedBox(
+                  height: 26,
+                  width: 26,
+                  child: CircularProgressIndicator(
+                    color: AppColors.primary,
+                    strokeWidth: 3,
+                  ),
+                )
+              : CustomText(
+                  text: text,
+                  color: textColor,
+                  fontWeight: FontWeight.w500,
+                  size: 16,
+                ),
         ),
       ),
     );

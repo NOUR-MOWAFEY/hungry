@@ -2,13 +2,16 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import '../views/signup_view.dart';
+import 'package:hungry/core/network/api_error.dart';
+import 'package:hungry/core/utils/show_snack_bar.dart';
+import 'package:hungry/features/auth/data/auth_repo.dart';
 
 import '../../../core/constants/app_colors.dart';
 import '../../../shared/custom_text_field.dart';
+import '../views/signup_view.dart';
 import '../widgets/custom_auth_button.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   const LoginForm({
     super.key,
     required this.emailController,
@@ -21,6 +24,13 @@ class LoginForm extends StatelessWidget {
   final GlobalKey<FormState> formKey;
 
   @override
+  State<LoginForm> createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  bool isLoading = false;
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -29,7 +39,7 @@ class LoginForm extends StatelessWidget {
         CustomTextFormField(
           hintText: 'Email address',
           isPassword: false,
-          controller: emailController,
+          controller: widget.emailController,
         ),
 
         const Gap(12),
@@ -37,25 +47,18 @@ class LoginForm extends StatelessWidget {
         CustomTextFormField(
           hintText: 'Password',
           isPassword: true,
-          controller: passwordController,
+          controller: widget.passwordController,
         ),
 
         const Gap(24),
 
-        CustomAuthButton(
-          formKey: formKey,
-          text: 'Login',
-          onTap: () {
-            log('Successfully Login');
-          },
-        ),
+        CustomAuthButton(text: 'Login', onTap: _login, isLoading: isLoading),
 
         const Gap(8),
 
         SizedBox(
           width: 130,
           child: CustomAuthButton(
-            formKey: formKey,
             text: 'Create Account?',
             color: AppColors.primary,
             textColor: Colors.white,
@@ -67,5 +70,39 @@ class LoginForm extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void _login() async {
+    if (!_isValid(widget.formKey)) return;
+
+    AuthRepo authRepo = AuthRepo();
+
+    try {
+      setState(() => isLoading = true);
+
+      await authRepo.login(
+        widget.emailController.text.trim(),
+        widget.passwordController.text,
+      );
+    } on ApiError catch (e) {
+      log(e.toString());
+
+      if (!mounted) return;
+      showSnackBar(context, message: e.toString());
+    } catch (e) {
+      log(e.toString());
+
+      if (!mounted) return;
+      showSnackBar(context, message: e.toString());
+    } finally {
+      setState(() => isLoading = false);
+    }
+  }
+
+  bool _isValid(GlobalKey<FormState> key) {
+    if (!key.currentState!.validate()) {
+      return false;
+    }
+    return true;
   }
 }

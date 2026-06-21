@@ -32,12 +32,17 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   Widget build(BuildContext context) {
     return TextFormField(
       cursorColor: AppColors.primary,
+      autovalidateMode: .onUserInteractionIfError,
       cursorHeight: 20,
       obscureText: _isObsecure,
       controller: widget.controller,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'Please fill ${widget.hintText}';
+        }
+        if (!widget.isPassword &&
+            !_emailRegex.hasMatch(widget.controller.text)) {
+          return 'Invalid Email';
         }
         return null;
       },
@@ -52,6 +57,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         enabledBorder: _customOutlineInputBorder(),
         focusedBorder: _customOutlineInputBorder(),
         errorBorder: _customOutlineInputBorder(),
+        focusedErrorBorder: _customOutlineInputBorder(),
         suffixIcon: widget.isPassword
             ? GestureDetector(
                 child: Icon(Icons.remove_red_eye_outlined),
@@ -72,4 +78,6 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       borderSide: BorderSide(color: Colors.white),
     );
   }
+
+  final _emailRegex = RegExp(r'^[\w\.-]+@[\w\.-]+\.\w+$');
 }

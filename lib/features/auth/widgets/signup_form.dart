@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import '../views/login_view.dart';
 
 import '../../../core/constants/app_colors.dart';
 import '../../../shared/custom_text_field.dart';
+import '../views/login_view.dart';
 import '../widgets/custom_auth_button.dart';
 
 class SignupForm extends StatelessWidget {
@@ -63,7 +63,6 @@ class SignupForm extends StatelessWidget {
         const Gap(24),
 
         CustomAuthButton(
-          formKey: formKey,
           text: 'Sign up',
           onTap: () {
             log('Successfully Sign up');
@@ -75,7 +74,6 @@ class SignupForm extends StatelessWidget {
         SizedBox(
           width: 130,
           child: CustomAuthButton(
-            formKey: formKey,
             text: 'Go to login?',
             color: AppColors.primary,
             textColor: Colors.white,

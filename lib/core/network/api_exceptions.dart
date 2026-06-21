@@ -22,20 +22,23 @@ class ApiExceptions {
 
       case DioExceptionType.badResponse:
         final statusCode = error.response?.statusCode;
+        final responseData = error.response?.data;
 
-        if (statusCode == 400) {
-          return ApiError(message: 'Bad request.');
-        } else if (statusCode == 401) {
-          return ApiError(message: 'Unauthorized. Please login again.');
-        } else if (statusCode == 403) {
-          return ApiError(message: 'Forbidden request.');
-        } else if (statusCode == 404) {
-          return ApiError(message: 'Resource not found.');
-        } else if (statusCode == 500) {
-          return ApiError(message: 'Internal server error.');
-        } else {
-          return ApiError(message: 'Unexpected server error.');
+        String? apiMessage;
+
+        if (responseData is Map<String, dynamic>) {
+          apiMessage = responseData['message'];
+        } else if (responseData is String) {
+          apiMessage = responseData;
         }
+
+        final displayMessage =
+            apiMessage ??
+            apiMessage ??
+            error.response?.statusMessage ??
+            'Server error ($statusCode)';
+
+        return ApiError(message: displayMessage, statusCode: statusCode);
 
       case DioExceptionType.cancel:
         return ApiError(message: 'Request was cancelled.');
