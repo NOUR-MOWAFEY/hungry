@@ -7,11 +7,11 @@ class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
     super.key,
     required this.hintText,
-    required this.isPassword,
+    required this.inputType,
     required this.controller,
   });
   final String hintText;
-  final bool isPassword;
+  final InputType inputType;
   final TextEditingController controller;
 
   @override
@@ -20,10 +20,12 @@ class CustomTextFormField extends StatefulWidget {
 
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
   late bool _isObsecure;
+  late bool _isPassword;
 
   @override
   void initState() {
-    _isObsecure = widget.isPassword;
+    _isPassword = widget.inputType == InputType.password;
+    _isObsecure = _isPassword;
 
     super.initState();
   }
@@ -36,16 +38,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       cursorHeight: 20,
       obscureText: _isObsecure,
       controller: widget.controller,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Please fill ${widget.hintText}';
-        }
-        if (!widget.isPassword &&
-            !_emailRegex.hasMatch(widget.controller.text)) {
-          return 'Invalid Email';
-        }
-        return null;
-      },
+      validator: _validator,
       decoration: InputDecoration(
         fillColor: Colors.white,
         filled: true,
@@ -58,7 +51,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         focusedBorder: _customOutlineInputBorder(),
         errorBorder: _customOutlineInputBorder(),
         focusedErrorBorder: _customOutlineInputBorder(),
-        suffixIcon: widget.isPassword
+        suffixIcon: _isPassword
             ? GestureDetector(
                 child: Icon(Icons.remove_red_eye_outlined),
                 onTap: () {
@@ -72,6 +65,20 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     );
   }
 
+  String? _validator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please fill ${widget.hintText}';
+    }
+    if (widget.inputType == InputType.email &&
+        !_emailRegex.hasMatch(widget.controller.text)) {
+      return 'Invalid Email';
+    }
+    if (widget.inputType == InputType.name && value.length < 3) {
+      return 'The name must be at least 3 letters long.';
+    }
+    return null;
+  }
+
   OutlineInputBorder _customOutlineInputBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(16),
@@ -81,3 +88,5 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 
   final _emailRegex = RegExp(r'^[\w\.-]+@[\w\.-]+\.\w+$');
 }
+
+enum InputType { name, email, password }

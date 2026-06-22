@@ -8,24 +8,24 @@ class CustomAuthButton extends StatelessWidget {
     super.key,
     this.text = '',
     this.onTap,
-    this.color = Colors.white,
+    this.color,
     this.textColor = AppColors.primary,
     this.isLoading = false,
   });
   final String text;
   final void Function()? onTap;
-  final Color color;
+  final Color? color;
   final Color textColor;
   final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: isLoading ? null : onTap,
       child: Container(
         height: 55,
         decoration: BoxDecoration(
-          color: color,
+          color: color ?? (isLoading ? Colors.grey.shade400 : Colors.white),
           borderRadius: BorderRadius.circular(16),
         ),
 

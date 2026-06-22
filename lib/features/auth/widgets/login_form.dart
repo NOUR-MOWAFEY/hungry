@@ -12,78 +12,91 @@ import '../views/signup_view.dart';
 import '../widgets/custom_auth_button.dart';
 
 class LoginForm extends StatefulWidget {
-  const LoginForm({
-    super.key,
-    required this.emailController,
-    required this.passwordController,
-    required this.formKey,
-  });
-
-  final TextEditingController emailController;
-  final TextEditingController passwordController;
-  final GlobalKey<FormState> formKey;
+  const LoginForm({super.key});
 
   @override
   State<LoginForm> createState() => _LoginFormState();
 }
 
 class _LoginFormState extends State<LoginForm> {
+  late TextEditingController emailController;
+  late TextEditingController passController;
+  final formKey = GlobalKey<FormState>();
+
   bool isLoading = false;
 
   @override
+  void initState() {
+    emailController = TextEditingController();
+    passController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Gap(50),
+    return Form(
+      key: formKey,
+      child: Column(
+        children: [
+          const Gap(50),
 
-        CustomTextFormField(
-          hintText: 'Email address',
-          isPassword: false,
-          controller: widget.emailController,
-        ),
+          // email text field
+          CustomTextFormField(
+            hintText: 'Email address',
+            inputType: InputType.email,
+            controller: emailController,
+          ),
 
-        const Gap(12),
+          const Gap(12),
 
-        CustomTextFormField(
-          hintText: 'Password',
-          isPassword: true,
-          controller: widget.passwordController,
-        ),
+          // pass text field
+          CustomTextFormField(
+            hintText: 'Password',
+            inputType: InputType.password,
+            controller: passController,
+          ),
 
-        const Gap(24),
+          const Gap(24),
 
-        CustomAuthButton(text: 'Login', onTap: _login, isLoading: isLoading),
+          // login btn
+          CustomAuthButton(text: 'Login', onTap: _login, isLoading: isLoading),
 
-        const Gap(8),
+          const Gap(8),
 
-        SizedBox(
-          width: 130,
-          child: CustomAuthButton(
-            text: 'Create Account?',
-            color: AppColors.primary,
-            textColor: Colors.white,
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const SignupView()),
+          // navigate to sign up btn
+          SizedBox(
+            width: 130,
+            child: CustomAuthButton(
+              text: 'Create Account?',
+              color: AppColors.primary,
+              textColor: Colors.white,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SignupView()),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
   void _login() async {
-    if (!_isValid(widget.formKey)) return;
+    if (!_isValid(formKey)) return;
 
     AuthRepo authRepo = AuthRepo();
 
     try {
       setState(() => isLoading = true);
 
-      await authRepo.login(
-        widget.emailController.text.trim(),
-        widget.passwordController.text,
-      );
+      await authRepo.login(emailController.text.trim(), passController.text);
     } on ApiError catch (e) {
       log(e.toString());
 

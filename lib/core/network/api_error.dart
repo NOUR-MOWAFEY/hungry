@@ -5,5 +5,7 @@ class ApiError {
   ApiError({required this.message, this.statusCode});
 
   @override
-  String toString() => message;
+  String toString() {
+    return message;
+  }
 }

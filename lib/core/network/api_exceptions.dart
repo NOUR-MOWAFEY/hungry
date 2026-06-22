@@ -34,7 +34,6 @@ class ApiExceptions {
 
         final displayMessage =
             apiMessage ??
-            apiMessage ??
             error.response?.statusMessage ??
             'Server error ($statusCode)';
 
