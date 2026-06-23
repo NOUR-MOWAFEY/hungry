@@ -9,14 +9,16 @@ class CustomAuthButton extends StatelessWidget {
     this.text = '',
     this.onTap,
     this.color,
-    this.textColor = AppColors.primary,
+    this.textColor = AppColors.secondary,
     this.isLoading = false,
+    this.showShadow = true,
   });
   final String text;
   final void Function()? onTap;
   final Color? color;
   final Color textColor;
   final bool isLoading;
+  final bool showShadow;
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +27,23 @@ class CustomAuthButton extends StatelessWidget {
       child: Container(
         height: 55,
         decoration: BoxDecoration(
-          color: color ?? (isLoading ? Colors.grey.shade400 : Colors.white),
-          borderRadius: BorderRadius.circular(16),
+          color:
+              color ?? (isLoading ? Colors.grey.shade400 : AppColors.primary),
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: isLoading || !showShadow
+              ? []
+              : [
+                  BoxShadow(
+                    color: (color ?? AppColors.primary).withValues(alpha: 0.6),
+                    blurRadius: 20,
+                    spreadRadius: 2,
+                  ),
+                  BoxShadow(
+                    color: (color ?? AppColors.primary).withValues(alpha: 0.3),
+                    blurRadius: 40,
+                    spreadRadius: 6,
+                  ),
+                ],
         ),
 
         child: Center(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+import 'package:hungry/shared/custom_back_button.dart';
 
 import '../../../core/constants/app_colors.dart';
 import '../../../shared/custom_text.dart';
@@ -16,20 +16,22 @@ class SignupView extends StatelessWidget {
         backgroundColor: Colors.white,
         body: Column(
           children: [
-            const Gap(180),
+            const Gap(35),
 
-            SvgPicture.asset(
-              'assets/logo/logo.svg',
-              colorFilter: const ColorFilter.mode(
-                AppColors.primary,
-                BlendMode.srcIn,
-              ),
+            const Row(
+              mainAxisAlignment: .start,
+              children: [Gap(18), CustomBackButton()],
             ),
+
+            const Gap(50),
+
+            // logo
+            Image.asset('assets/images/logo/text_logo.png', width: 320),
 
             const Gap(6),
 
             const CustomText(
-              text: 'Welcome to our Food App',
+              text: 'Create an Account, Start Your Food Journey.',
               fontWeight: FontWeight.w600,
               color: AppColors.primary,
             ),

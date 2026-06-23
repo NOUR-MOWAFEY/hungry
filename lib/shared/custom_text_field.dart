@@ -40,11 +40,12 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       controller: widget.controller,
       validator: _validator,
       decoration: InputDecoration(
-        fillColor: Colors.white,
+        fillColor: AppColors.secondary.withValues(alpha: .15),
         filled: true,
+        errorStyle: TextStyle(color: Colors.redAccent),
         hint: CustomText(
           text: widget.hintText,
-          color: Colors.grey.shade700,
+          color: Colors.grey.shade400,
           fontWeight: FontWeight.w500,
         ),
         enabledBorder: _customOutlineInputBorder(),
@@ -81,8 +82,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 
   OutlineInputBorder _customOutlineInputBorder() {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(16),
-      borderSide: BorderSide(color: Colors.white),
+      borderRadius: BorderRadius.circular(20),
+      borderSide: BorderSide(color: Colors.transparent),
     );
   }
 

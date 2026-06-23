@@ -6,7 +6,6 @@ import 'package:hungry/core/network/api_error.dart';
 import 'package:hungry/core/utils/show_snack_bar.dart';
 import 'package:hungry/features/auth/data/auth_repo.dart';
 
-import '../../../core/constants/app_colors.dart';
 import '../../../shared/custom_text_field.dart';
 import '../views/signup_view.dart';
 import '../widgets/custom_auth_button.dart';
@@ -45,7 +44,7 @@ class _LoginFormState extends State<LoginForm> {
       key: formKey,
       child: Column(
         children: [
-          const Gap(50),
+          // const Gap(50),
 
           // email text field
           CustomTextFormField(
@@ -71,17 +70,28 @@ class _LoginFormState extends State<LoginForm> {
           const Gap(8),
 
           // navigate to sign up btn
-          SizedBox(
-            width: 130,
-            child: CustomAuthButton(
-              text: 'Create Account?',
-              color: AppColors.primary,
-              textColor: Colors.white,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SignupView()),
+          Row(
+            mainAxisAlignment: .center,
+            children: [
+              Text(
+                'don\'t have an account?',
+                style: TextStyle(color: Colors.white, fontSize: 16),
               ),
-            ),
+              SizedBox(
+                width: 130,
+                height: 40,
+                child: CustomAuthButton(
+                  text: 'Create Account',
+                  color: Colors.transparent,
+                  textColor: Colors.white,
+                  showShadow: false,
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SignupView()),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),

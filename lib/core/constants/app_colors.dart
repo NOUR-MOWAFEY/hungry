@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const primary = Color.fromARGB(255, 63, 57, 121);
-  static const secondary = Color.fromARGB(255, 66, 47, 47);
+  static const primary = Color(0xffB1672B);
+  static const secondary = Color(0xffFFF4DE);
+
+  static const scaffoldBGColors = [
+    Color(0xffD89A4D),
+    Color(0xffB56A2D),
+    Color(0xff7A3E16),
+  ];
 }
