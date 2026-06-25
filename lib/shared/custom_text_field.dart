@@ -54,7 +54,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         focusedErrorBorder: _customOutlineInputBorder(),
         suffixIcon: _isPassword
             ? GestureDetector(
-                child: Icon(Icons.remove_red_eye_outlined),
+                child: Icon(
+                  _isObsecure
+                      ? Icons.visibility_off_outlined
+                      : Icons.visibility_outlined,
+                ),
                 onTap: () {
                   setState(() {
                     _isObsecure = !_isObsecure;

@@ -44,7 +44,7 @@ class _LoginFormState extends State<LoginForm> {
       key: formKey,
       child: Column(
         children: [
-          // const Gap(50),
+          const Gap(38),
 
           // email text field
           CustomTextFormField(
@@ -67,7 +67,7 @@ class _LoginFormState extends State<LoginForm> {
           // login btn
           CustomAuthButton(text: 'Login', onTap: _login, isLoading: isLoading),
 
-          const Gap(8),
+          const Gap(16),
 
           // navigate to sign up btn
           Row(
@@ -78,10 +78,10 @@ class _LoginFormState extends State<LoginForm> {
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
               SizedBox(
-                width: 130,
-                height: 40,
+                height: 30,
                 child: CustomAuthButton(
                   text: 'Create Account',
+                  horizontalMargin: 4,
                   color: Colors.transparent,
                   textColor: Colors.white,
                   showShadow: false,
@@ -93,6 +93,7 @@ class _LoginFormState extends State<LoginForm> {
               ),
             ],
           ),
+          const Gap(22),
         ],
       ),
     );

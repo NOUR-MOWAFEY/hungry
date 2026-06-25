@@ -6,7 +6,6 @@ import 'package:hungry/core/network/api_error.dart';
 import 'package:hungry/core/utils/show_snack_bar.dart';
 import 'package:hungry/features/auth/data/auth_repo.dart';
 
-import '../../../core/constants/app_colors.dart';
 import '../../../shared/custom_text_field.dart';
 import '../views/login_view.dart';
 import '../widgets/custom_auth_button.dart';
@@ -51,8 +50,7 @@ class _SignupFormState extends State<SignupForm> {
       key: formKey,
       child: Column(
         children: [
-          const Gap(50),
-
+          const Gap(38),
           // name text field
           CustomTextFormField(
             hintText: 'Name',
@@ -87,7 +85,7 @@ class _SignupFormState extends State<SignupForm> {
             controller: confirmPassController,
           ),
 
-          const Gap(24),
+          const Gap(16),
 
           // signup btn
           CustomAuthButton(
@@ -98,19 +96,33 @@ class _SignupFormState extends State<SignupForm> {
 
           const Gap(8),
 
-          // navigate to login btn
-          SizedBox(
-            width: 130,
-            child: CustomAuthButton(
-              text: 'Go to login?',
-              color: AppColors.primary,
-              textColor: Colors.white,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const LoginView()),
+          Row(
+            mainAxisAlignment: .center,
+            children: [
+              Text(
+                'already have an account?',
+                style: TextStyle(color: Colors.white, fontSize: 16),
               ),
-            ),
+
+              SizedBox(
+                width: 50,
+                height: 40,
+                child: CustomAuthButton(
+                  text: 'login',
+                  color: Colors.transparent,
+                  textColor: Colors.white,
+                  showShadow: false,
+                  onTap: () => Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginView()),
+                    (route) => false,
+                  ),
+                ),
+              ),
+            ],
           ),
+
+          const Gap(22),
         ],
       ),
     );

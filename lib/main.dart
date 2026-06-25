@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hungry/core/constants/app_colors.dart';
 import 'package:hungry/features/auth/views/login_view.dart';
 
 void main() async {
@@ -18,9 +19,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Hungry App',
-      theme: ThemeData(
+      theme: ThemeData.dark().copyWith(
         splashColor: Colors.transparent,
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: AppColors.bg,
       ),
       home: const LoginView(),
     );

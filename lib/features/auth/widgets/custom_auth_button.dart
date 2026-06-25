@@ -12,6 +12,7 @@ class CustomAuthButton extends StatelessWidget {
     this.textColor = AppColors.secondary,
     this.isLoading = false,
     this.showShadow = true,
+    this.horizontalMargin = 0,
   });
   final String text;
   final void Function()? onTap;
@@ -19,12 +20,14 @@ class CustomAuthButton extends StatelessWidget {
   final Color textColor;
   final bool isLoading;
   final bool showShadow;
+  final double horizontalMargin;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: isLoading ? null : onTap,
       child: Container(
+        padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
         height: 55,
         decoration: BoxDecoration(
           color:
