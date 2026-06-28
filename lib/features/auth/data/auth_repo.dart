@@ -80,6 +80,29 @@ class AuthRepo {
   }
 
   // get profile data
+  Future<UserModel?> getProfileData() async {
+    try {
+      Map<String, dynamic> response = await apiService.get(EndPoints.profile);
+
+      if (response[Keys.code] != 200 && response[Keys.code] != 201) {
+        throw ApiError(
+          message:
+              response[Keys.message] ??
+              'Something went wrong, Please try again',
+        );
+      }
+
+      return UserModel.fromJson(response[Keys.data]);
+    } on ApiError {
+      rethrow;
+    } on DioException catch (e) {
+      log(e.message ?? '');
+      throw ApiExceptions.handleError(e);
+    } catch (e) {
+      log(e.toString());
+      throw ApiError(message: 'Something went wrong, Please try again later');
+    }
+  }
 
   // update profile data
 
@@ -99,4 +122,5 @@ class EndPoints {
   static const login = '/login';
   static const signup = '/register';
   static const logout = '/logout';
+  static const profile = '/profile';
 }

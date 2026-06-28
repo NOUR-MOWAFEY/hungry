@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:hungry/core/constants/app_colors.dart';
 
 import '../widgets/categories_list.dart';
 import '../widgets/food_sliver_grid.dart';
@@ -24,8 +25,8 @@ class HomeView extends StatelessWidget {
               floating: true,
               actionsPadding: EdgeInsets.zero,
               titleSpacing: 0,
-              toolbarHeight: 165,
-              backgroundColor: Colors.white,
+              toolbarHeight: 160,
+              backgroundColor: AppColors.bg,
               flexibleSpace: Padding(
                 padding: EdgeInsetsGeometry.only(top: 32, right: 18, left: 18),
                 child: Column(

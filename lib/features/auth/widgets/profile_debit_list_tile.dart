@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../shared/custom_text.dart';
 
 class ProfileDebitListTile extends StatelessWidget {
-  const ProfileDebitListTile({super.key});
+  const ProfileDebitListTile({super.key, required this.visaNumber});
+  final String? visaNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,9 @@ class ProfileDebitListTile extends StatelessWidget {
       title: CustomText(text: 'Debit card', size: 16, color: Colors.black),
 
       subtitle: CustomText(
-        text: '3566 **** **** 0505',
+        text: visaNumber == null || visaNumber!.isEmpty
+            ? '**** **** **** 1234'
+            : visaNumber!,
         size: 16,
         color: Colors.grey.shade700,
       ),

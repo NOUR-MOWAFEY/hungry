@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:hungry/core/network/api_error.dart';
 import 'package:hungry/core/utils/show_snack_bar.dart';
 import 'package:hungry/features/auth/data/auth_repo.dart';
+import 'package:hungry/root.dart';
 
 import '../../../shared/custom_text_field.dart';
 import '../views/signup_view.dart';
@@ -28,6 +29,9 @@ class _LoginFormState extends State<LoginForm> {
   void initState() {
     emailController = TextEditingController();
     passController = TextEditingController();
+
+    emailController.text = 'nour@gmail.com';
+    passController.text = '12345678';
     super.initState();
   }
 
@@ -85,10 +89,16 @@ class _LoginFormState extends State<LoginForm> {
                   color: Colors.transparent,
                   textColor: Colors.white,
                   showShadow: false,
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const SignupView()),
-                  ),
+                  onTap: () {
+                    FocusManager.instance.primaryFocus?.unfocus();
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SignupView(),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
@@ -108,6 +118,14 @@ class _LoginFormState extends State<LoginForm> {
       setState(() => isLoading = true);
 
       await authRepo.login(emailController.text.trim(), passController.text);
+
+      if (!mounted) return;
+
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (_) => const Root()),
+        (_) => false,
+      );
     } on ApiError catch (e) {
       log(e.toString());
 

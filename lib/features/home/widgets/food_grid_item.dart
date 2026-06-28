@@ -10,16 +10,26 @@ class FoodGridItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.white,
-
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(22),
+        color: Colors.white.withValues(alpha: 0.14),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 22,
+            spreadRadius: 10,
+            color: Colors.black.withValues(alpha: 0.08),
+          ),
+        ],
+      ),
       child: Padding(
         padding: const EdgeInsets.all(12),
         child: Column(
-          crossAxisAlignment: .start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
-              clipBehavior: .none,
+              clipBehavior: Clip.none,
               children: [
                 Positioned(
                   left: 0,
@@ -31,24 +41,23 @@ class FoodGridItem extends StatelessWidget {
               ],
             ),
 
-            Gap(12),
+            const Gap(12),
 
             const CustomText(
               text: 'Cheeseburger',
               fontWeight: FontWeight.bold,
-              color: Color(0xff3e3333),
+              color: Colors.white70,
               size: 16,
             ),
 
             const CustomText(
               text: 'Wendy\'s Burger',
-              color: Color(0xff3e3333),
+              color: Colors.white70,
               size: 16,
               fontWeight: FontWeight.w400,
             ),
 
             const Row(
-              mainAxisSize: .min,
               children: [
                 Icon(
                   Icons.star_rounded,
@@ -57,7 +66,7 @@ class FoodGridItem extends StatelessWidget {
 
                 CustomText(
                   text: '4.9',
-                  color: Color(0xff3e3333),
+                  color: Colors.white70,
                   fontWeight: FontWeight.bold,
                   size: 16,
                 ),

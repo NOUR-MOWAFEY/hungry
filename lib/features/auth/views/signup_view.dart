@@ -12,7 +12,7 @@ class SignupView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: const Scaffold(
         body: SingleChildScrollView(
           child: Stack(
@@ -41,8 +41,9 @@ class SignupView extends StatelessWidget {
                   ),
                 ],
               ),
+
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 18, vertical: 38),
+                padding: EdgeInsets.symmetric(horizontal: 18, vertical: 44),
                 child: CustomBackButton(),
               ),
             ],

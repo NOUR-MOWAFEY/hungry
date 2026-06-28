@@ -10,9 +10,9 @@ class SerachBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      elevation: 2,
+      elevation: 4,
       borderRadius: BorderRadius.circular(12),
-      color: Colors.white,
+      color: Colors.grey.shade400.withValues(alpha: .3),
 
       child: TextField(
         cursorColor: AppColors.primary,
@@ -26,14 +26,11 @@ class SerachBar extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             borderSide: BorderSide(color: Colors.transparent),
           ),
-          hint: CustomText(
-            text: 'Search..',
-            color: Colors.grey.shade700,
-            size: 16,
-          ),
+          hint: CustomText(text: 'Search..', color: Colors.white70, size: 16),
           prefixIcon: const Icon(
             CupertinoIcons.search,
             fontWeight: FontWeight.bold,
+            color: Colors.white70 ,
           ),
         ),
       ),

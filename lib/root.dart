@@ -48,7 +48,7 @@ class _RootState extends State<Root> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _currentView == 3 ? AppColors.primary : null,
+      backgroundColor: _currentView == 3 ? AppColors.bg : null,
       body: PageView(
         clipBehavior: Clip.none,
         controller: _pageController,
@@ -70,7 +70,7 @@ class _RootState extends State<Root> {
           currentIndex: _currentView,
           type: BottomNavigationBarType.fixed,
           selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.grey.shade600,
+          unselectedItemColor: Colors.grey.shade400.withValues(alpha: .3),
           backgroundColor: Colors.transparent,
 
           onTap: (index) {

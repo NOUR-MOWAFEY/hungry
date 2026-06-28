@@ -18,7 +18,9 @@ class FoodCategoryItem extends StatelessWidget {
       height: 50,
       padding: EdgeInsets.symmetric(horizontal: 28, vertical: 12),
       decoration: BoxDecoration(
-        color: isSelected ? AppColors.primary : Colors.grey.shade400,
+        color: isSelected
+            ? AppColors.primary
+            : Colors.grey.shade400.withValues(alpha: .3),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Center(child: CustomText(text: name)),

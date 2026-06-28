@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+
 import '../../../core/constants/app_colors.dart';
 import '../../../shared/custom_text.dart';
 
@@ -45,7 +46,7 @@ class _CounterWidgetState extends State<CounterWidget> {
 
         const Gap(25),
 
-        CustomText(text: counter.toString(), color: Colors.black, size: 24),
+        CustomText(text: counter.toString(), color: Colors.white70, size: 24),
 
         const Gap(25),
 

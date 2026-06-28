@@ -51,6 +51,7 @@ class _SignupFormState extends State<SignupForm> {
       child: Column(
         children: [
           const Gap(38),
+
           // name text field
           CustomTextFormField(
             hintText: 'Name',
@@ -140,6 +141,14 @@ class _SignupFormState extends State<SignupForm> {
         nameController.text.trim(),
         emailController.text.trim(),
         passController.text,
+      );
+
+      if (!mounted) return;
+
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => LoginView()),
+        (_) => false,
       );
     } on ApiError catch (e) {
       log(e.toString());

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hungry/core/constants/app_colors.dart';
 import 'package:hungry/features/auth/views/login_view.dart';
+import 'package:hungry/root.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

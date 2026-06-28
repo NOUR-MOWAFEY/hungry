@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:gap/gap.dart';
+import 'package:hungry/shared/text_logo_with_burger.dart';
 
 import '../../../core/constants/app_colors.dart';
-import '../../../shared/custom_text.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
@@ -15,23 +13,16 @@ class HomeAppBar extends StatelessWidget {
         Column(
           crossAxisAlignment: .start,
           children: [
-            SvgPicture.asset(
-              'assets/logo/logo.svg',
-              height: 40,
-              colorFilter: const ColorFilter.mode(
-                AppColors.primary,
-                BlendMode.srcIn,
-              ),
-            ),
+            TextLogoWithBurger(size: 150),
 
-            const Gap(4),
+            // const Gap(4),
 
-            CustomText(
-              text: 'Hello, Nour Mowafey',
-              color: Colors.grey.shade600,
-              fontWeight: FontWeight.w500,
-              size: 18,
-            ),
+            // CustomText(
+            //   text: 'Hello, Nour Mowafey',
+            //   color: Colors.white70,
+            //   fontWeight: FontWeight.w500,
+            //   size: 18,
+            // ),
           ],
         ),
         const Spacer(),
